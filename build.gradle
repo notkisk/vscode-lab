@@ -1,0 +1,17 @@
+plugins {
+    id 'java'
+}
+
+group = 'edu.lab'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+tasks.register('runRefactoringTests', JavaExec) {
+    group = 'verification'
+    description = 'Runs local assertion-based tests without external dependencies.'
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'edu.lab.refactoring.RefactoringTestRunner'
+}
